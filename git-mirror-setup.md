@@ -28,9 +28,9 @@
     - Sample URL
     ```text
     #Orignal
-    git@github.com:harshbuddhadev/Misc-Codes.git
+    git@github.com:johndoe/Misc-Codes.git
     #Modified
-    ssh://git@github.com/harshbuddhadev/Misc-Codes.git
+    ssh://git@github.com/johndoe/Misc-Codes.git
     ```
 16. Enter the Following Values
 
@@ -61,7 +61,7 @@
     #Format
     <first name> @ <repo name> @ gitlab-mirror
     #Sample
-    harsh@misc-codes@gitlab-mirror
+    johndoe@misc-codes@gitlab-mirror
     ```
 25. Under Key, paste the previously copied SSH Key (Step 18)
 26. Select Allow Write Access
