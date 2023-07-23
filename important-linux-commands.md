@@ -1,6 +1,7 @@
 # Important Linux Commands
 
-## Copy service, enable and Start it
+## Service
+### Copy service, enable and Start it
 
 ```bash
 sudo cp main.service /etc/systemd/system
@@ -9,15 +10,12 @@ sudo systemctl daemon-reload
 sudo systemctl restart main.service
 ```
 
-## Fping Commands
-
+### Follow Service Output
 ```bash
-sudo apt install fping || (echo "Error installing fping" && exit 1)
-fping 192.168.1.101 
-fping --timeout=50 < ip.txt
+journalctl -f -u virtualhere.service
 ```
 
-## Linux Service
+### Linux Service Format
 ```text
 [Unit]
 Description = System Service
@@ -32,6 +30,14 @@ Restart=always
 
 [Install]
 WantedBy = multi-user.target
+```
+
+## Fping Commands
+
+```bash
+sudo apt install fping || (echo "Error installing fping" && exit 1)
+fping 192.168.1.101 
+fping --timeout=50 < ip.txt
 ```
 
 ## Logging Shell Script
