@@ -27,7 +27,7 @@
 
 6. Expected Output:
 
-    ```bash
+    ```text
     PS C:\Users\johndoe\.ssh> ssh-keygen
     Generating public/private rsa key pair.
     Enter file in which to save the key (C:\Users\johndoe/.ssh/id_rsa): C:\Users\johndoe/.ssh/keyname
@@ -131,7 +131,7 @@ We can specify the required parameter for each SSH Server
     ```
 
     - Expected Output:
-        ```bash
+        ```text
         PS C:\Users\johndoe\.ssh> ssh git@gitlab.com
         Enter passphrase for key 'C:\Users\johndoe/.ssh/gitlab_key':
         PTY allocation request failed on channel 0
@@ -140,7 +140,7 @@ We can specify the required parameter for each SSH Server
         PS C:\Users\johndoe\.ssh>
         ```
     - Incase you receive the following output , review the Keys Entered and follow the guide again
-    ```bash
+    ```text
     PS C:\Users\johndoe\.ssh> ssh git@gitlab.com
     git@gitlab.com: Permission denied (publickey).
     PS C:\Users\johndoe\.ssh>
