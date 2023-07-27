@@ -11,7 +11,7 @@ ssh <username>@<ip-address>
 ssh john@serverdomain -i "path/to/key"
 ```
 
-3. SSH using specifying to use Password 
+3. SSH using specifying to use Password even if SSH Key is available
 ```bash
 ssh john@serverdomain -o PubkeyAuthentication=no
 ```
@@ -67,10 +67,11 @@ If we want to forward the ports of a remote machine on our Local Machine, we can
 1. via Direct Command 
 ```bash
 ssh john@server -L 9000:localhost:9000
-ssh john@server -L 9000:192.168.1.10:9000 #We can change localhost to a specific IP Address to forward a port of Another Machine on the Remote Machine's Network
+ssh john@server -L 9000:192.168.1.10:9000 
+#We can change localhost to a specific IP Address to forward a port of Another Machine on the Remote Machine's Network
 
 #Syntax
-#ssh john@server -L port_to_open_locally:ip_of_remote_machine:remote_port_to_forward
+#ssh john@server -L <port_to_open_locally>:<ip_of_remote_machine>:<remote_port_to_forward>
 ```
 2. via Config File
 ```text
@@ -78,4 +79,79 @@ Host servername
   HostName 192.168.1.11
   User johndoe
   LocalForward 8888 localhost:8000
+  #LocalForward <port_to_open_locally> <ip_of_remote_machine>:<remote_port_to_forward>
 ```
+
+### Remote Forwarding
+If we want to forward the ports of our local machine to the Remote Server, we can use Remote Forwarding 
+
+> Note: To Use SSH Remote forwarding we need to Enable Gateway Ports in sshd_config file
+
+#### Enabling GatewayPorts/clientspecified in sshd_config
+1. open SSH Server Config
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+2. Update the "GatewayPorts" line or append if it does not exist
+```text
+GatewayPorts yes
+```
+
+3. If you want to allow specific the forwarding to be accessible on specific addresses, set it to the following
+```text
+GatewayPorts clientspecified
+```
+#### GatewayPorts Set to "yes"
+1. via Direct Command (GatewayPorts Set to YES)
+```bash
+ssh john@server -R 5555:localhost:22 
+ssh john@server -R 5555:192.168.1.10:22 
+#We can change localhost to a specific IP Address to forward a port of Another Machine on the Local Machine's Network
+#Syntax
+#ssh john@server -L <port_to_expose>:<ip_of_local_machine>:<local_port_to_forward>
+```
+2. via Config File
+```text
+Host servername
+  HostName 192.168.1.11
+  User johndoe
+  RemoteForward 5555 localhost:22
+  #LocalForward <port_to_expose> <ip_of_local_machine>:<local_port_to_forward>
+```
+
+#### GatewayPorts Set to "clientspecified"
+
+1. via Direct Command (GatewayPorts Set to YES)
+```bash
+ssh john@server -R 192.168.1.11:5555:localhost:22 
+ssh john@server -R 192.168.1.11:5555:192.168.1.10:22 
+#We can change localhost to a specific IP Address to forward a port of Another Machine on the Local Machine's Network
+#Syntax
+#ssh john@server -L <binding address>:<port_to_expose>:<ip_of_local_machine>:<local_port_to_forward>
+# use '*' for all addresses
+```
+2. via Config File
+```text
+Host servername
+  HostName 192.168.1.11
+  User johndoe
+  RemoteForward 5555 localhost:22
+  #LocalForward <binding address>:<port_to_expose> <ip_of_local_machine>:<local_port_to_forward>
+```
+
+---
+## Reference Links
+1. https://www.geeksforgeeks.org/ssh-port-forwarding/
+2. https://www.ssh.com/academy/ssh/config
+3. https://www.unixtutorial.org/ssh-port-forwarding/
+4. https://www.clearlyip.ca/2022/07/12/ssh-port-forwarding/
+5. https://www.section.io/engineering-education/ssh-tunneling/
+6. https://serverfault.com/questions/1052158/how-to-add-local-forward-setting-to-my-ssh-config-file
+7. https://www.howtogeek.com/devops/how-to-manage-an-ssh-config-file-in-windows-linux/
+8. https://serverfault.com/questions/851132/how-to-diagnose-a-ssh-remote-port-forward-not-working
+9. https://askubuntu.com/questions/50064/reverse-port-tunnelling
+10. https://mohitgoyal.co/2021/01/16/overview-of-ssh-tunneling-and-configuration-options/
+11. https://superuser.com/questions/767524/why-can-i-not-connect-to-a-reverse-ssh-tunnel-port-remotely-even-with-gatewaypo
+12. https://www.ssh.com/academy/ssh/command
+13. https://www.ssh.com/academy/ssh/tunneling-example
+14. https://phoenixnap.com/kb/ssh-port-forwarding
