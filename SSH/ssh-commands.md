@@ -28,6 +28,16 @@ ssh john@serverdomain -vvv #will inform you about everything from both ends.
 ssh john@serverdomain -p 22
 ```
 
+5. Skip Adding SSH Fingerprint to known_hosts file
+```bash
+ssh john@serverdomain -o UserKnownHostsFile=/dev/null
+```
+
+6. Auto Add SSH Fingerprint to known_hosts file
+```bash
+ssh john@serverdomain -o StrictHostKeyChecking=no
+```
+
 ## SSH Config File
 The ssh config file can be used for configuring the default options that will apply when connecting with.
 
@@ -107,6 +117,7 @@ GatewayPorts clientspecified
 ssh john@server -R 5555:localhost:22 
 ssh john@server -R 5555:192.168.1.10:22 
 #We can change localhost to a specific IP Address to forward a port of Another Machine on the Local Machine's Network
+
 #Syntax
 #ssh john@server -L <port_to_expose>:<ip_of_local_machine>:<local_port_to_forward>
 ```
@@ -126,6 +137,7 @@ Host servername
 ssh john@server -R 192.168.1.11:5555:localhost:22 
 ssh john@server -R 192.168.1.11:5555:192.168.1.10:22 
 #We can change localhost to a specific IP Address to forward a port of Another Machine on the Local Machine's Network
+
 #Syntax
 #ssh john@server -L <binding address>:<port_to_expose>:<ip_of_local_machine>:<local_port_to_forward>
 # use '*' for all addresses
