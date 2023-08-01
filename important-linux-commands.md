@@ -75,14 +75,20 @@ echo "Please Run the Script as root user or with SUDO Priviledges" 1>&2
 exit 1
 fi
 
-sudo apt update || (echo "Error Updating" && exit 1)
-sudo apt-get install python3 || (echo "Error Install Python3" && exit 1)
-sudo apt install python3-pip || (echo "Error Install pip" && exit 1)
+function error {
+  echo -e "\\e[91m$1\\e[39m"
+  exit 1
+}
+
+
+sudo apt update || error "Error Updating"
+sudo apt-get install python3 || error "Error Install Python3"
+sudo apt install python3-pip || error "Error Install pip"
 /usr/bin/python3 -m pip --version
-sudo apt install fping || (echo "Error installing fping" && exit 1)
-/usr/bin/python3 -m pip install smbus2 || (echo "Error install pip-smbus2 Dependency" && exit 1)
-/usr/bin/python3 -m pip install sht20 || (echo "Error install pip-sht20 Dependency" && exit 1)
-/usr/bin/python3 -m pip install Flask || (echo "Error install pip-Flask Dependency" && exit 1)
+sudo apt install fping || error "Error installing fping"
+/usr/bin/python3 -m pip install smbus2 || error "Error install pip-smbus2 Dependency"
+/usr/bin/python3 -m pip install sht20 || error "Error install pip-sht20 Dependency"
+/usr/bin/python3 -m pip install Flask || error "Error install pip-Flask Dependency"
 
 echo "Dependency Install/Setup Successfull" && exit 0
 ```
