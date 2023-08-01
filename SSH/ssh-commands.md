@@ -1,4 +1,5 @@
 # SSH Commands
+This Guide Contains All Comands and Syntaxs for SSH
 
 1. SSH using Password
 	```bash
@@ -167,3 +168,4 @@ If we want to forward the ports of our local machine to the Remote Server, we ca
 12. https://www.ssh.com/academy/ssh/command
 13. https://www.ssh.com/academy/ssh/tunneling-example
 14. https://phoenixnap.com/kb/ssh-port-forwarding
+15. [SSH Key Permissions Windows](https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open)

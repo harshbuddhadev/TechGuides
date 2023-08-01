@@ -1,4 +1,5 @@
 # How to Setup SSH Keys for Public/Private Key Authentication
+This Guide Contains the Steps to Setup SSH Key for Authentication for SSH Login/GitLab/GitHub
 
 ## SSH Key Generation
 1. Open any Terminal Window (Powershell/Windows-Terminal/Command-Prompt/Terminal)
@@ -151,3 +152,4 @@ We can specify the required parameter for each SSH Server
 ## Reference Links
 1. [SSH Essentials: Working with SSH Servers, Clients, and Keys](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys#removing-or-changing-the-passphrase-on-a-private-key)
 2. [SSH config file for OpenSSH client](https://www.ssh.com/academy/ssh/config)
+3. [SSH Key Permissions Windows](https://superuser.com/questions/1296024/windows-ssh-permissions-for-private-key-are-too-open)
