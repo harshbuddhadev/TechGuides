@@ -13,7 +13,7 @@
 9. Click on "Create repository" button and wait for few seconds until it gets created successfully
 10. Copy and save the Repo SSH URL
 
-![GitHub-Create-Repo](./Images/github-create-repo.png)
+![GitHub-Create-Repo](/Images/github-create-repo.png)
 
 
 ## Add Repo Mirror to GitLab
@@ -42,12 +42,12 @@
 17. Click on Detect Host Keys
 18. Click on Mirror Repository
 
-![GitLab-Mirror-Repo](./Images/gitlab-mirror-repo.png)
+![GitLab-Mirror-Repo](/Images/gitlab-mirror-repo.png)
 
 
 19. Once the Mirror has Been Created, Click on the Copy SSH Key Button and save the SSH Key
 
-![GitLab-Mirror-Copy-Key](./Images/gitlab-mirror-copy-key.png)
+![GitLab-Mirror-Copy-Key](/Images/gitlab-mirror-copy-key.png)
 
 
 ## Enter SSH Key in GitHub
@@ -67,7 +67,7 @@
 26. Select Allow Write Access
 27. Click on Add Key
 
-![GitHub-add-SSH-Deploy-Key](./Images/github-add-ssh-deploy-key.png)
+![GitHub-add-SSH-Deploy-Key](/Images/github-add-ssh-deploy-key.png)
 
 
 ## Verify Mirroring Setup
@@ -77,7 +77,7 @@
 29. Click on Update Now Button and Wait 5 mins
 30. Refresh the page after 5 mins and make sure there are no errors
 
-![GitLab-Refresh-Mirror-Repo-Status](./Images/gitlab-refresh-mirror-repo-status.png)
+![GitLab-Refresh-Mirror-Repo-Status](/Images/gitlab-refresh-mirror-repo-status.png)
 
 ## Setup is Complete
 ---
