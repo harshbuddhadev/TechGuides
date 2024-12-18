@@ -34,10 +34,11 @@
     ```
 16. Enter the Following Values
 
-| Parameter             	| Value          	|
-|-----------------------	|----------------	|
-| Mirror Direction      	| Push           	|
-| Authentication Method 	| SSH Public Key 	|
+| Parameter                 | Value              |
+|-----------------------    |----------------    |
+| Mirror Direction          | Push               |
+| Authentication Method     | SSH Public Key     |
+| Username                  | git                |
 
 17. Click on Detect Host Keys
 18. Click on Mirror Repository
